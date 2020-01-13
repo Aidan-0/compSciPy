@@ -1,7 +1,6 @@
 # from __future__ import print_function # must be first in file
 import random
 
-
 def quiz_decimal(low, high):
     print ('Type a number between', low, 'and', high)
     userinput = float(input('Number: '))
