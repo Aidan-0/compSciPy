@@ -26,19 +26,17 @@ def rollonehundred():
     plt.hist(a)
     plt.show()
 
-
 def hangman(guessed, secret):
-    revealed = ''
-    for char in guessed:
-        if char in secret:
-            revealed += char
+    reveal = ''
+    for char in secret:
+        if char in guessed:
+            reveal += char
         else:
-            if ' ' in secret:
-                revealed += ' '
+            if char == ' ':
+                reveal += ' '
             else:
-                revealed += '-'
-    print (revealed)
-
+                reveal += '-'
+    print (reveal)
 
 def picks():
     a = []  # make an empty list
