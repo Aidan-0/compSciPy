@@ -6,23 +6,27 @@ def rando():
 
 
 def go_guess():
-   '''THIS CODE WILL AT THIS POINT CAUSE A LOOP THAT CAN ONLY BE BROKEN BY INTERRUPT
-   PLEASE ONLY PROCEED IF YOU HAVE THIS'''
+   '''A simple guessing game'''
    
+   # Initialize variables
    # Number is in between so we don't include 1 or 20
-   randint = random.randint(2, 19)
-   gusses = 0
-   print('I have a number between 1 and 20')
-   guess = int(input('Guess: '))
-   while int(input('Guess: ') != randint:
-      if int(input('Guess: ') > randint:
+   low = 1
+   high = 100
+   number = random.randint(low + 1, high - 1)
+   tries = 0
+   guess = 0
+
+   print('I have a number between', low, 'and', high)
+   while (guess != number):
+      guess = int(input('Guess: '))
+      if guess > number:
          print('Too high, guess again')
-         gusses += 1
+         tries += 1
       else:
          print('Too low, guess again')
-         gueses += 1
-   print('Congrats! My number was', randint,
-         '! You guessed in', gueses, 'tries!')
+         tries += 1
+   print('Congrats! My number was', number,
+         '! You guessed in', tries, 'tries!')
 
 
 def validate():
