@@ -16,7 +16,7 @@ chrRecommend = ''
 searchType = ''
 search = ''
 programQuery = ''
-hits = 0
+
 
 def delTemp():
     '''Used only for wiping temp variables, 
@@ -32,7 +32,7 @@ def delTemp():
 def marioSearch():
     searchDone = False
     programDone = False
-    
+    hits = 0
 
     print('Welcome to Mario Bros search!')
     while (programDone != True):
@@ -77,6 +77,7 @@ def marioSearch():
                     searchDone = True
 
                 else:
+
                     gameReccomend = input ('Sorry, that is not a valid game. Would you like to submit one? Y/N')
                     if gameRecommend == 'Y':
                         gameRecommendation += input ('Please input what game should be added (abbreveation): ')
@@ -86,43 +87,45 @@ def marioSearch():
                     elif gameRecommend == 'N':
                         print ('Ok!')
                         delTemp()
-
+                    else:
+                        print ('That is not a valid option, please try again')
+                        
         if searchType == 'character':
             while (searchDone != True):
                 search = input ('Please enter a character name: ')
 
                 for string in SMB1:
-                    if search in SMB1:
+                    if search == string:
                         print (string + ' - SMB1')
                         hits += 1
                 for string in SMB2:
-                    if search in SMB2:
+                    if search == string:
                         print (string + ' - SMB2')
                         hits += 1
                 for string in SMB3:
-                    if search in SMB3:
+                    if search == string:
                         print (string + ' - SMB3') 
                         hits += 1 
                 for string in SMW:
-                    if search in SMW:
+                    if search == string:
                         print (string + ' - SMW')
                         hits += 1
                 for string in SM64:
-                    if search in SM64:
+                    if search == string:
                         print (string + ' - SM64')
                         hits += 1
                 for string in NSMB:
-                    if search in NSMB:
+                    if search == string:
                         print (string + ' - NSMB')
                         hits += 1
                 for string in SM3D:
-                    if search in SM3D:
+                    if search == string:
                         print (string + ' - SM3D')
                         hits += 1
 
                 if hits == 0:
                     chrRecommend = input ('Your search came out with no hits. Would you like to suggest a character? Y/N')
-                    if chrReccomend == 'Y':
+                    if chrRecommend == 'Y':
                         chrTemp += input ('Please input a character: ')
                         chrTemp += ' -' + input ('What game are they from?: ')
                         chrRecommendation += chrTemp
@@ -134,7 +137,7 @@ def marioSearch():
                         delTemp()
 
                 elif hits == 1:
-                    print ('Your search came out with', hits, 'hit')
+                    print ('Your search came out with', 1, 'hit')
                     delTemp()
                     searchDone = True
                     
@@ -142,13 +145,7 @@ def marioSearch():
                     print ('Your search came out with', hits, 'hits')
                     delTemp()
                     searchDone = True
-
-        programQuery = input ('Would you like to do another search? Y/N')
-        if programQuery == 'N':
-            print ('Ok, have a nice day :)')
-            delTemp()
-            programDone = True
-
-        elif programQuery == 'Y':
-            print ('Taking you back...')
-            delTemp()
+            
+        print ('Have a nice day :)')
+        delTemp()
+        programDone = True
