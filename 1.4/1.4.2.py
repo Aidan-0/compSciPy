@@ -14,8 +14,9 @@ filename = os.path.join(directory, 'cat1-a.gif')
 img = plt.imread(filename)
 '''Show the image data'''
 # Create figure with 1 subplot
-fig, ax = plt.subplots(1, 3)
+fig, ax = plt.subplots(1, 4)
 # Show the image data in a subplot
+
 ax[0].imshow(img, interpolation='none')
 
 ax[1].set_xlim(7, 17)
@@ -25,6 +26,10 @@ ax[1].imshow(img, interpolation='none')
 ax[2].set_xlim(17, 27)
 ax[2].set_ylim(45, 55)
 ax[2].imshow(img, interpolation='none')
+
+ax[3].set_xlim(27, 37)
+ax[3].set_ylim(55, 65)
+ax[3].imshow(img, interpolation='none')
 
 # Show the figure on the screen
 fig.show()
