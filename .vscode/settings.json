@@ -8,5 +8,9 @@
         "**/.DS_Store": true,
         ".history": true
     },
-    "explorerExclude.backup": null
+    "explorerExclude.backup": null,
+    "cSpell.words": [
+        "xlim",
+        "ylim"
+    ]
 }
