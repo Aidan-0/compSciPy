@@ -1,30 +1,42 @@
-'''
-JDoe_JSmith_1_4_3: Change pixels in an image.
-'''
 import matplotlib.pyplot as plt
 import os.path
-import numpy as np # “as” lets us use standard abbreviations
+import numpy as np
+from PIL import Image
+
 '''Read the image data'''
 # Get the directory of this python script
 directory = os.path.dirname(os.path.abspath(__file__))
+
 # Build an absolute filename from directory + filename
 filename = os.path.join(directory, 'woman.jpg')
+
 # Read the image data into an array
-img = plt.imread(filename)
+# So plt wasn't working so I imported another thing and it seems to work
+imgOrigin = Image.open(filename)
+imgOrigin.load()
+img = np.asarray( imgOrigin, dtype="int32" )
+
 '''Show the image data'''
 # Create figure with 1 subplot
-fig, ax = plt.subplots(1, 1)
+fig, ax = plt.subplots(1, 3)
 # Show the image data in a subplot
-###
+
 # Make a rectangle of pixels yellow
-###
+
+ax[0].imshow(img, interpolation='none')
 height = len(img)
 width = len(img[0])
-for row in range(200, 220): 
-    for column in range(50, 100):
-        img[row][column] = [255, 255, 0] # red + green = yellow
+for r in range(155):
+ for c in range(width):
+    if sum(img[r][c])>500: # brightness R+G+B goes up to 3*255=765
+        img[r][c]=[255,0,255] # red + green = yellow
 
+ax[1].imshow(img, interpolation='none')
 
-ax.imshow(img, interpolation='none')
-# Show the 
+for r in range(420, 460):
+ for c in range(130, 170):
+    if sum(img[r][c])>400: # brightness R+G+B goes up to 3*255=765
+        img[r][c]=[0,255,0] # red + green = yellow
+ax[2].imshow(img, interpolation='none')
+
 fig.show()
