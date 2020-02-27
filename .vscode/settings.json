@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\Aidan\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
+    "python.pythonPath": "C:\\Python27\\python.exe",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
