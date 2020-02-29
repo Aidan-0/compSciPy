@@ -1,0 +1,10 @@
+from Tkinter import *
+from PIL import ImageTk, Image 
+
+root = Tk()
+image = Image.open('test.jpg')
+photo = ImageTk.PhotoImage(image)
+label = Label(image=photo)
+label.image = photo
+label.pack()
+root.mainloop()
