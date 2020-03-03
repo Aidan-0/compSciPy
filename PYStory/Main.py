@@ -4,7 +4,7 @@ import webbrowser
 import getpass
 from Tkinter import *
 from PIL import Image, ImageTk
-
+from subprocess import call
 
 def cover():
     root = Tk()
@@ -220,8 +220,8 @@ def storyp2f(choice):
                     while userChoice not in ['STEAL', 'JOB']:
                         userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job)')).upper()
                     if userChoice == 'STEAL':
-                        print('You choose to rob a bank to get your money...')
                         showImage('girlRob.jpg')
+                        print('You choose to rob a bank to get your money...')
                         caughtChance = rndm.randint(0, 100)
                         if caughtChance in range(0,30):
                             print('You were caught in the act! You\'re off to prison!')
@@ -250,9 +250,10 @@ def storyp2f(choice):
         while userChoice not in ['STEAL', 'JOB']:
             userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job)')).upper()
         if userChoice == 'STEAL':
+            showImage('girlRob.jpg')
             print('You choose to rob a bank to get your money...')
             caughtChance = rndm.randint(0, 100)
-            if caughtChance in range(0,30):
+            if caughtChance in range(0,60):
                 print('You were caught in the act! You\'re off to prison!')
                 showImage('prison.jpg')
                 time.sleep(5)
@@ -284,7 +285,12 @@ def breach():
     print('They all touch the c̸̡̢͚̞̙̫̦̪͍̈́͊̚ŗ̶̨̣͖̤͔͔͉̏̒̃ä̷̡̛͉̮̮̤̮̘̠͓́̃͊̍̑̽́͛̐c̴̲̲̖͚̳̐̊̏̍̀̈̾̇͠k̴͖͇͙̞̤̳͙̈́̑̅̚')
     time.sleep(2)
     rndmWeb()
-    time.sleep(3)
+    call(["calc.exe"])
+    time.sleep(0.5)
+    call(["notepad.exe"])
+    time.sleep(0.5)
+    call(["explorer.exe"])
+    time.sleep(2)
     print('[WARNING] Breach detected')
     time.sleep(rndm.randint(1, 5))
     print('Killing Process...')
@@ -303,8 +309,7 @@ def rndmWeb():
 
 def showImage(filename):
     root = Tk()
-    image = Image.open(filename)
-    photo = ImageTk.PhotoImage(image)
+    photo = ImageTk.PhotoImage(Image.open(filename))
     label = Label(image=photo)
     label.image = photo
     label.pack()
