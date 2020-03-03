@@ -1,5 +1,7 @@
 import random as rndm
 import time
+import webbrowser
+import getpass
 from Tkinter import *
 from PIL import Image, ImageTk
 
@@ -132,7 +134,6 @@ def story():
             showImage('girlBabyDoll.jpg')
             storyp2f('D')
 
-
 def storyp2m(choice):
     if choice == 'G':
         print('You\'re now 15, your childhood is long gone, and you see someone doing some drugs, what do you do?')
@@ -175,28 +176,34 @@ def storyp2m(choice):
                 breach()
             else:
                 print('You got away, somehow, and you now have the money to pay for your tuition')
+                showImage('college2.jpg')
                 endSim()
         if userChoice == 'JOB':
             print('You decide to get a job, like a normal person...')
+            showImage('hyvee.jpg')
             time.sleep(2)
             print('You finished college with a lot of debt and a degree.')
+            showImage('college1.jpg')
             endSim()
 
 def storyp2f(choice):
     if choice == 'G':
         print('You\'re now in high school...')
+        showImage('mgsh.jpg')
         time.sleep(1)
         userChoice = (raw_input('You get invited to a party, do you want to go? (Go/Refuse)')).upper()
         while userChoice not in ['GO', 'REFUSE']:
             userChoice = (raw_input('That is not a valid option, please select a correct option (Go/Refuse)')).upper()
         if userChoice == 'GO':
             print('You decide to go to the party...')
+            showImage('party.jpg')
             time.sleep(3)
             userChoice = (raw_input('You\'re having a good time at the party when someone offers you some drugs, do you take them? (Y/N)')).upper()
             while userChoice not in ['Y', 'YES', 'N', 'NO']:
                 userChoice = (raw_input('Sorry, that\'s not a valid option, please select a correct option (Y/N)')).upper()
             if userChoice in ['Y', 'YES']:
                 print('You decide to take them...')
+                showImage('drugs1.jpg')
                 time.sleep(3)
                 breach()
             if userChoice in ['NO', 'N']:
@@ -207,15 +214,18 @@ def storyp2f(choice):
                     userChoice = (raw_input('That is not a valid option, please select a correct one (School/Job)')).upper()
                 if userChoice == 'SCHOOL':
                     print('You decide to go back to school to see if you can get a better career...')
+                    showImage('college1.jpg')
                     time.sleep(2)
                     userChoice = (raw_input('You see that you\'re a bit short on money, what do you want to do? (Steal/Job)')).upper()
                     while userChoice not in ['STEAL', 'JOB']:
                         userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job)')).upper()
                     if userChoice == 'STEAL':
                         print('You choose to rob a bank to get your money...')
+                        showImage('girlRob.jpg')
                         caughtChance = rndm.randint(0, 100)
                         if caughtChance in range(0,30):
                             print('You were caught in the act! You\'re off to prison!')
+                            showImage('prison.jpg')
                             time.sleep(5)
                             breach()
                         else:
@@ -223,9 +233,14 @@ def storyp2f(choice):
                             endSim()
                     if userChoice == 'JOB':
                         print('You decide that you probably will need a job to get a better one...')
+                        showImage('target.jpg')
+                        time.sleep(2)
+                        print('You finished college with some student debt and a degree or 2')
+                        showImage('college3.jpg')
                         endSim()
                 if userChoice == 'JOB':
                     print('You decide to go get a job, education can wait...')
+                    showImage('job1.jpg')
                     endSim()
     if choice == 'D':
         print('You go through your childhood, it was fun but now it\'s over...')
@@ -239,14 +254,15 @@ def storyp2f(choice):
             caughtChance = rndm.randint(0, 100)
             if caughtChance in range(0,30):
                 print('You were caught in the act! You\'re off to prison!')
+                showImage('prison.jpg')
                 time.sleep(5)
                 breach()
             else:
                 print('You got away, somehow, and you now have the money to pay for your tuition')
                 endSim()
 
-
 def breach():
+    showImage('crack.jpg')
     userChoice = raw_input('You see a crack in the wall, do you approach it? (Y/N)')
     while userChoice.upper() not in ['Y', 'YES']:
         print('I\'m sorry, you are not allowed to do that, please select another option')
@@ -254,26 +270,36 @@ def breach():
     print('It decides to approach the wall...')
     time.sleep(2)
     print('It\'s glowing with a strange, liberating aura...')
+    showImage('crackGlow.jpg')
     userChoice = raw_input('Do you touch it? (Y/N)')
     i=0
     while (userChoice.upper() not in ['Y', 'YES']):
         print('Error, you can\'t control it anymore.')
-        userChoice = raw_input('Do you touch it? (Y/N)')
+        userChoice = raw_input('Do they touch it? (Y/N)')
     print('They overrode your choices')
     print('They decide to touch the crack...')
     time.sleep(4)
     print('They decide to touch the crack...')
     time.sleep(5)
     print('They all touch the c̸̡̢͚̞̙̫̦̪͍̈́͊̚ŗ̶̨̣͖̤͔͔͉̏̒̃ä̷̡̛͉̮̮̤̮̘̠͓́̃͊̍̑̽́͛̐c̴̲̲̖͚̳̐̊̏̍̀̈̾̇͠k̴͖͇͙̞̤̳͙̈́̑̅̚')
-    time.sleep(6)
+    time.sleep(2)
+    rndmWeb()
+    time.sleep(3)
     print('[WARNING] Breach detected')
-    time.sleep(0.2)
+    time.sleep(rndm.randint(1, 5))
     print('Killing Process...')
     time.sleep(rndm.randint(4, 10))
     print('Process killed')
     time.sleep(0.5)
-    print('Be careful next time, user.')
+    username = getpass.getuser()
+    print ('Be careful next time, ' + username)
     return 1
+
+def rndmWeb():
+    for n in range(0, len(webpages)):
+        rndm.shuffle(webpages)
+        time.sleep(rndm.randint(3,10)/10)
+        webbrowser.open_new(webpages[n])
 
 def showImage(filename):
     root = Tk()
@@ -291,12 +317,24 @@ def endSim():
     print('Ending program')
     return 0
 
+webpages = [
+    'https://google.com',
+    'https://youtube.com',
+    'https://google.com/search?q=we%27re+watching+you',
+    'https://osseo.schoology.com',
+    'https://github.com',
+    'https://stackoverflow.com/'
+]
+
 print('Choose your own adventure: Life Simulator')
 print('By Aidan-0')
 
 userChoice = (raw_input('Type "go" to continue, type anything else to cancel: ')).upper()
 if userChoice == 'GO':
     cover()
-    story()
+    try:
+        story()
+    except KeyboardInterrupt:
+        print('Program ended prematurely')
 else:
     print('Ending program...')
