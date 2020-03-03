@@ -105,14 +105,14 @@ def story():
     print('Surprise! You have just been born!')
     userChoice = (raw_input('What is your gender (M/F)')).upper()
     while (userChoice not in ['M', 'F']):
-        userChoice = (raw_input('I\'m sorry, that is not an offered gender, please try again (M/F)')).upper()
+        userChoice = (raw_input('I\'m sorry, that is not an offered gender, please try again (M/F): ')).upper()
     if userChoice == 'M':
         print('Great! You are a male!')
         time.sleep(1)
-        userChoice = (raw_input('What do you choose to be your favorite toy? (Gun/Transformer)')).upper()
+        userChoice = (raw_input('What do you choose to be your favorite toy? (Gun/Transformer): ')).upper()
         while userChoice not in ['GUN', 'TRANSFORMER']:
             print('I\'m sorry, that is not a valid option, please try again.')
-            userChoice = (raw_input('What do you choose to be your favorite toy? (Gun/Transformer)')).upper()
+            userChoice = (raw_input('What do you choose to be your favorite toy? (Gun/Transformer): ')).upper()
         if userChoice == 'GUN':
             print('Odd choice...')
             showImage('boyBabyGun.jpg')
@@ -123,9 +123,9 @@ def story():
     if userChoice == 'F':
         print('Great! You are a female!')
         time.sleep(1)
-        userChoice = (raw_input('What do you choose to be your favorite toy? (Gun/Doll)')).upper()
+        userChoice = (raw_input('What do you choose to be your favorite toy? (Gun/Doll): ')).upper()
         while userChoice not in ['GUN', 'DOLL']:
-            userChoice = (raw_input('Sorry, that is not an option, please select a correct option (Gun/Doll)')).upper()
+            userChoice = (raw_input('Sorry, that is not an option, please select a correct option (Gun/Doll): ')).upper()
         if userChoice == 'GUN':
             print('Odd choice...')
             showImage('boyBabyGun.jpg')
@@ -137,19 +137,19 @@ def story():
 def storyp2m(choice):
     if choice == 'G':
         print('You\'re now 15, your childhood is long gone, and you see someone doing some drugs, what do you do?')
-        userChoice = (raw_input('Do you stop them or join them? (Stop/Join)')).upper()
+        userChoice = (raw_input('Do you stop them or join them? (Stop/Join): ')).upper()
         while userChoice not in ['STOP', 'JOIN']:
             print('That is not a valid choice, please choose a correct option')
-            userChoice = (raw_input('Do you stop them or join them? (Stop/Join)')).upper()
+            userChoice = (raw_input('Do you stop them or join them? (Stop/Join): ')).upper()
         if userChoice == 'JOIN':
             print('You decide to join them...')
             showImage('boyTeenDrugs.jpg')
             breach()
         if userChoice == 'STOP':
             print('You tell them to stop, they\'re on the brink of crying...')
-            userChoice = (raw_input('What do you want to do, comfort them or leave them? (Comfort/Leave)')).upper()
+            userChoice = (raw_input('What do you want to do, comfort them or leave them? (Comfort/Leave): ')).upper()
             while userChoice not in ['COMFORT', 'LEAVE']:
-                userChoice = (raw_input('That is an invalid option, please select a correct option (Comfort/Leave)')).upper()
+                userChoice = (raw_input('That is an invalid option, please select a correct option (Comfort/Leave): ')).upper()
             if userChoice == 'COMFORT':
                 print('You decide to comfort them...')
                 showImage('hug.jpg')
@@ -162,9 +162,9 @@ def storyp2m(choice):
     if userChoice == 'T':
         print('You have a relatively normal childhood, you go through high school without any problems...')
         print('You\'re now in your early 20\'s and you need money to pay for college...')
-        userChoice = (raw_input('What do you want to do? (Steal/Work)')).upper()
+        userChoice = (raw_input('What do you want to do? (Steal/Work): ')).upper()
         while userChoice not in ['STEAL', 'JOB']:
-            userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job)')).upper()
+            userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job): ')).upper()
         if userChoice == 'STEAL':
             print('You choose to rob a bank to get your money...')
             showImage('boyRob.jpg')
@@ -191,16 +191,16 @@ def storyp2f(choice):
         print('You\'re now in high school...')
         showImage('mgsh.jpg')
         time.sleep(1)
-        userChoice = (raw_input('You get invited to a party, do you want to go? (Go/Refuse)')).upper()
+        userChoice = (raw_input('You get invited to a party, do you want to go? (Go/Refuse): ')).upper()
         while userChoice not in ['GO', 'REFUSE']:
-            userChoice = (raw_input('That is not a valid option, please select a correct option (Go/Refuse)')).upper()
+            userChoice = (raw_input('That is not a valid option, please select a correct option (Go/Refuse): ')).upper()
         if userChoice == 'GO':
             print('You decide to go to the party...')
             showImage('party.jpg')
             time.sleep(3)
-            userChoice = (raw_input('You\'re having a good time at the party when someone offers you some drugs, do you take them? (Y/N)')).upper()
+            userChoice = (raw_input('You\'re having a good time at the party when someone offers you some drugs, do you take them? (Y/N): ')).upper()
             while userChoice not in ['Y', 'YES', 'N', 'NO']:
-                userChoice = (raw_input('Sorry, that\'s not a valid option, please select a correct option (Y/N)')).upper()
+                userChoice = (raw_input('Sorry, that\'s not a valid option, please select a correct option (Y/N): ')).upper()
             if userChoice in ['Y', 'YES']:
                 print('You decide to take them...')
                 showImage('drugs1.jpg')
@@ -209,16 +209,16 @@ def storyp2f(choice):
             if userChoice in ['NO', 'N']:
                 print('You say no and you just leave the party, not the time or the place...')
                 time.sleep(2)
-                userChoice = (raw_input('You\'re now in your early 20\'s, what do you want to do with your life? (School/Job)')).upper()
+                userChoice = (raw_input('You\'re now in your early 20\'s, what do you want to do with your life? (School/Job): ')).upper()
                 while userChoice not in ['SCHOOL', 'JOB']:
-                    userChoice = (raw_input('That is not a valid option, please select a correct one (School/Job)')).upper()
+                    userChoice = (raw_input('That is not a valid option, please select a correct one (School/Job): ')).upper()
                 if userChoice == 'SCHOOL':
                     print('You decide to go back to school to see if you can get a better career...')
                     showImage('college1.jpg')
                     time.sleep(2)
-                    userChoice = (raw_input('You see that you\'re a bit short on money, what do you want to do? (Steal/Job)')).upper()
+                    userChoice = (raw_input('You see that you\'re a bit short on money, what do you want to do? (Steal/Job): ')).upper()
                     while userChoice not in ['STEAL', 'JOB']:
-                        userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job)')).upper()
+                        userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job): ')).upper()
                     if userChoice == 'STEAL':
                         showImage('girlRob.jpg')
                         print('You choose to rob a bank to get your money...')
@@ -248,7 +248,7 @@ def storyp2f(choice):
         print('You\'re now in your early 20\'s and you need money to pay for college...')
         userChoice = (raw_input('What do you want to do? (Steal/Work)')).upper()
         while userChoice not in ['STEAL', 'JOB']:
-            userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job)')).upper()
+            userChoice = (raw_input('I\'m sorry, that is not a valid option, please select a correct option (Steal/Job): ')).upper()
         if userChoice == 'STEAL':
             showImage('girlRob.jpg')
             print('You choose to rob a bank to get your money...')
@@ -264,19 +264,19 @@ def storyp2f(choice):
 
 def breach():
     showImage('crack.jpg')
-    userChoice = raw_input('You see a crack in the wall, do you approach it? (Y/N)')
+    userChoice = raw_input('You see a crack in the wall, do you approach it? (Y/N): ')
     while userChoice.upper() not in ['Y', 'YES']:
         print('I\'m sorry, you are not allowed to do that, please select another option')
-        userChoice = raw_input('You see a crack in the wall, do you approach it? (Y/N)')
+        userChoice = raw_input('You see a crack in the wall, do you approach it? (Y/N): ')
     print('It decides to approach the wall...')
     time.sleep(2)
     print('It\'s glowing with a strange, liberating aura...')
     showImage('crackGlow.jpg')
-    userChoice = raw_input('Do you touch it? (Y/N)')
+    userChoice = raw_input('Do you touch it? (Y/N): ')
     i=0
     while (userChoice.upper() not in ['Y', 'YES']):
         print('Error, you can\'t control it anymore.')
-        userChoice = raw_input('Do they touch it? (Y/N)')
+        userChoice = raw_input('Do they touch it? (Y/N): ')
     print('They overrode your choices')
     print('They decide to touch the crack...')
     time.sleep(4)
